@@ -19,6 +19,7 @@ import socket
 import sys
 from time import sleep # for setting alarms in advance
 from config import *
+from logic import run_alarm
 
 if not HOST:
   HOST = "localhost" # default : localhost

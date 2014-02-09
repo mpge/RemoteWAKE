@@ -20,8 +20,17 @@ import sys
 from time import sleep # for setting alarms in advance
 from config import *
 
+if not HOST:
+  HOST = "localhost" # default : localhost
+if not PORT:
+  PORT = 2040 # default port is 2040
+if not LISTEN_FORM:
+  print >>sys.stderr, 'Please set LISTEN_FROM within config.py'
+  # exit
+  sys.exit()
+
 # variables already set from "from config import *: HOST, PORT, BUFFER_SIZE, LISTEN_FROM
-if HOST and PORT and BUFFER_SIZE and LISTEN_FROM:
+if HOST and PORT and LISTEN_FROM:
   # configs set... let's go!
   sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
   server_addr = (host, port)
@@ -40,6 +49,8 @@ if HOST and PORT and BUFFER_SIZE and LISTEN_FROM:
       message = ''
       # check if client_addr matches LISTEN_FROM, otherwise it's another site...
       if client_addr == LISTEN_FROM:
+        # some configs
+        wake_up_message = 'Running Alarm! WAKE UP!'
         # allowed IP
         # listen for data
         while True:
@@ -56,9 +67,16 @@ if HOST and PORT and BUFFER_SIZE and LISTEN_FROM:
               result[key] = value
               print >>sys.stderr, 'Config %s set to "%s"' %(key, value)
             print >>sys.stderr, "All Results Set... Completing Action..."
+            # setup variables, we are going to need them either way...
+            alarm_type = int(result.get("alarm_type")) # is an integer
+            how_long = int(float(result.get("how_long")) # in seconds
+            from_name = result.get("from_name") # string
+            from_message = result.get("from_message") # string
             # check action
             if action == "startAlarm":
-            
+              # start alarm now
+              print >>sys.stderr, wake_up_message
+              run_alarm(alarm_type, how_long, from_name, from_message)
             if action == "setAlarm":
               # setting the alarm in advance... Start the countdown
               countdown = int(float(result.get("time")) # in seconds
@@ -72,7 +90,7 @@ if HOST and PORT and BUFFER_SIZE and LISTEN_FROM:
                   print >>sys.stderr, 'Alarm in %s Seconds...' % countdown
                 else:
                   # countdown is 0
-                  print >>sys.stderr, 'Running Alarm! WAKE UP!'
+                  print >>sys.stderr, wake_up_message
                   # run alarm
                   run_alarm(alarm_type, how_long, from_name, from_message)
                   # exit while loop:

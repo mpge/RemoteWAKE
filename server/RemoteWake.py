@@ -66,7 +66,7 @@ def RemoteWakeListener(HOST, PORT, LISTEN_FROM):
             result = {}
             # loop through splitted data
             for pair in pairs:
-              (key, value) = pair.split('=')
+              (key, value) = pair.split('==')
               result[key] = value
               print >>sys.stderr, 'Config %s set to "%s"' %(key, value)
             print >>sys.stderr, "All Results Set... Completing Action..."

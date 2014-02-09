@@ -67,7 +67,7 @@ def run_sound(sound_id):
   elif _platform == "win32":
     # Windows...
     import winsound
-    winsound.PlaySound('%s.wav' % sound_file, winsound.SND_FILENAME)
+    winsound.PlaySound('%s' % sound_file, winsound.SND_FILENAME)
     return True
 
   return False

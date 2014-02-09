@@ -27,13 +27,13 @@ if not HOST:
   HOST = "localhost" # default : localhost
 if not PORT:
   PORT = 2040 # default port is 2040
-if not LISTEN_FORM:
+if not LISTEN_FROM:
   print >>sys.stderr, 'Please set LISTEN_FROM within config.py'
   # exit
   sys.exit()
 
 # variables already set from "from config import *: HOST, PORT, BUFFER_SIZE, LISTEN_FROM
-if HOST and PORT and LISTEN_FROM:
+def RemoteWakeListener(HOST, PORT, LISTEN_FROM):
   # configs set... let's go!
   sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
   server_addr = (host, port)
@@ -109,3 +109,7 @@ if HOST and PORT and LISTEN_FROM:
       
       # send default message
       connection.send(message)
+
+if __name__ == "__main__":
+  RemoteWakeListener(HOST, PORT, LISTEN_FROM)
+  

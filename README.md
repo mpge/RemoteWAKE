@@ -12,3 +12,5 @@ Configs to set once installed...
 - I'd recommend locking down the RemoteWake with a htaccess password http://www.htaccesstools.com/htpasswd-generator/ for extra security
 - open /server/config.py and edit config settings there. Make sure to match them up within the website file (server_settings.php).
 - Run RemoteWake.py when done (python RemoteWake.py)
+
+This is a "hacky" and "quick" script. Don't expect code quality to be elegant and perfect.

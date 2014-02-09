@@ -2,6 +2,28 @@
 session_start();
 // theming time
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>RemoteWAKE 1.0</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="bluebliss.css" />
+</head>
+<body>
+<div id="mainContentArea">
+	<div id="contentBox">
+        <div id="title">RemoteWAKE</div>
+        
+        <div id="linkGroup">
+            <div class="link"><a href="index.php?action=login">Login</a></div>
+            <div class="link"><a href="index.php?action=logout">Logout</a></div>
+            <div class="link"><a href="index.php?action=dashboard">Dashboard</a></div>
+        </div>
+        
+        <div id="blueBox"> 
+          <div id="header"></div>
+          <div class="contentTitle"><?php echo ucfirst($_REQUEST['action']) ?></div>
+            <div class="pageContent"><br>
 
 <?php
 // Configuration Settings
@@ -245,3 +267,12 @@ if($action == "login") {
   }
 }
 ?>
+<!-- Footer / Ending HTML -->
+</div>
+            <div id="footer"><a href="http://www.aszx.net">Theme</a> by <a href="http://www.bryantsmith.com">bryant smith</a></div>
+        </div>
+	</div>
+</div>
+</body>
+</html>
+

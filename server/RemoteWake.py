@@ -14,6 +14,8 @@
 # I tend to believe you deserve to be woken up with a huge alarm every 5 seconds.
 # !-- Massive Comments End!
 # !-- Software.... COMMENCE...
+# File Description:
+# RemoteWake.py - Primary run script and listener for the RemoteWAKE Server.
 
 import socket
 import sys

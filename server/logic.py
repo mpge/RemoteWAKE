@@ -32,7 +32,7 @@ class bcolors:
         self.ENDC = ''
 
 def run_sound(sound_id):
-  sound_file = SystemPath + Sounds.get(sound_id)
+  sound_file = SystemPath + Sounds[sound_id]
   # check operating system because sounds have to played in different ways for different operating systems.
   if _platform == "linux" or _platform == "linux2":
     # linux

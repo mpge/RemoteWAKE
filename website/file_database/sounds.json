@@ -1,0 +1,9 @@
+{
+  "sounds": {
+    "1": "/sounds/one.wav",
+    "2": "/sounds/two.wav",
+    "3": "/sounds/three.wav",
+    "4": "/sounds/four.wav",
+    "5": "/sounds/five.wav",
+  }
+}
